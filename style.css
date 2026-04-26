@@ -1,0 +1,301 @@
+:root {
+  --bg: #0b0d11;
+  --module-bg: #14181f;
+  --accent: #00f2ff;
+  --accent-dark: #004c52;
+  --text-head: "Michroma", sans-serif;
+  --text-body: "Outfit", sans-serif;
+  --border: rgba(0, 242, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: #e0e6ed;
+  font-family: var(--text-body);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+.navbar {
+  height: 70px;
+  background: rgba(11, 13, 17, 0.95);
+  border-bottom: 2px solid var(--border);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.logo {
+  font-family: var(--text-head);
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+.active-node {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+.nav-links a {
+  color: #8892b0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+.btn-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent) !important;
+}
+
+.station-grid {
+  max-width: 1400px;
+  margin: 100px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-areas:
+    "header telemetry"
+    "cargo cargo";
+  gap: 20px;
+}
+
+.module {
+  background: var(--module-bg);
+  border: 1px solid var(--border);
+  position: relative;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%
+  );
+}
+
+.module-header {
+  background: var(--accent-dark);
+  color: var(--accent);
+  font-family: var(--text-head);
+  font-size: 0.6rem;
+  padding: 5px 15px;
+  letter-spacing: 2px;
+}
+
+.flight-control {
+  grid-area: header;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.flight-data h1 {
+  font-family: var(--text-head);
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.data-group {
+  font-family: var(--text-head);
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+.label {
+  color: #555;
+  margin-right: 10px;
+}
+.value {
+  color: var(--accent);
+}
+.blinking {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.btn-tech {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 15px 30px;
+  font-family: var(--text-head);
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+.btn-tech:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.telemetry {
+  grid-area: telemetry;
+  padding: 20px;
+}
+.log-list {
+  margin-top: 20px;
+}
+.log-entry {
+  font-size: 0.8rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.warning {
+  color: #ff3e3e;
+}
+
+.cargo-manifest {
+  grid-area: cargo;
+  padding: 20px;
+}
+.manifest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cargo-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.cargo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+.cargo-item:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(transparent, #000);
+}
+.item-info h3 {
+  font-family: var(--text-head);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.item-info p {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.tall {
+  grid-row: span 2;
+}
+.wide {
+  grid-column: span 2;
+}
+.footer {
+  padding: 40px;
+  text-align: center;
+  color: #444;
+  font-size: 0.7rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .station-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "telemetry" "cargo";
+  }
+  .flight-control {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    padding-top: 40px;
+  }
+  .nav-links.active {
+    transform: translateX(0);
+  }
+  .menu-toggle {
+    display: block;
+    border: none;
+    background: none;
+  }
+  .menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--accent);
+    margin: 5px 0;
+  }
+
+  .manifest-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .manifest-grid {
+    grid-template-columns: 1fr;
+  }
+  .tall {
+    grid-row: span 1;
+  }
+  .flight-control h1 {
+    font-size: 2rem;
+  }
+}

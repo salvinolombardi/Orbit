@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORBIT_SYN // SPACE LOGISTICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&family=Outfit:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">ORBIT<span class="active-node">.</span>SYN</a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#cargo" class="active">CARGO_FLIGHTS</a></li>
+          <li><a href="#stations">STATION_MAP</a></li>
+          <li><a href="#comms">COMMS_LINK</a></li>
+          <li><a href="#auth" class="btn-outline">OPERATOR_ID</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="mobileMenu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="station-grid">
+      <header class="module flight-control">
+        <div class="module-header">DEPARTURE_CONTROL</div>
+        <div class="flight-data">
+          <div class="data-group">
+            <span class="label">DESTINATION:</span>
+            <span class="value">MARS_COLONY_04</span>
+          </div>
+          <div class="data-group">
+            <span class="label">STATUS:</span>
+            <span class="value blinking">BOARDING</span>
+          </div>
+          <h1>
+            Deep Space <br />
+            Terminal
+          </h1>
+          <p>
+            Monitoring all logistical movements within the Sol system.
+            High-frequency updates enabled.
+          </p>
+          <button class="btn-tech">REQUEST DOCKING</button>
+        </div>
+      </header>
+
+      <section class="module telemetry">
+        <div class="module-header">TELEMETRY_LOGS</div>
+        <div class="log-list">
+          <div class="log-entry">Oxygen Levels: 98%</div>
+          <div class="log-entry">Gravity Stability: [OK]</div>
+          <div class="log-entry warning">Solar Flare Warning</div>
+          <div class="log-entry">Shield Capacity: 100%</div>
+        </div>
+      </section>
+
+      <section id="cargo" class="module cargo-manifest">
+        <div class="module-header">CARGO_MANIFEST</div>
+        <div class="manifest-grid">
+          <div class="cargo-item tall">
+            <img
+              src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=800&auto=format&fit=crop"
+              alt="Earth view"
+            />
+            <div class="item-info">
+              <h3>Unit_X01</h3>
+              <p>Satellite Components</p>
+            </div>
+          </div>
+
+          <div class="cargo-item">
+            <img
+              src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=800&auto=format&fit=crop"
+              alt="Satellite"
+            />
+            <div class="item-info">
+              <h3>Unit_X02</h3>
+              <p>Hydroponic Seeds</p>
+            </div>
+          </div>
+
+          <div class="cargo-item">
+            <img
+              src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=800&auto=format&fit=crop"
+              alt="Rocket"
+            />
+            <div class="item-info">
+              <h3>Unit_X03</h3>
+              <p>Fuel Cells</p>
+            </div>
+          </div>
+
+          <div class="cargo-item wide">
+            <img
+              src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=1000&auto=format&fit=crop"
+              alt="Space Tech"
+            />
+            <div class="item-info">
+              <h3>Unit_Z99</h3>
+              <p>Experimental Neural Drive</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>SYN_SPACE</p>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobileMenu");
+      const navLinks = document.getElementById("navLinks");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileMenu.classList.toggle("is-active");
+      });
+    </script>
+  </body>
+</html>
